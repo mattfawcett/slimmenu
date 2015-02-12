@@ -15,6 +15,7 @@
             animSpeed: 'medium',
             easingEffect: null,
             indentChildren: false,
+            menuCollapserClickable: false,
             childrenIndenter: '&nbsp;&nbsp;'
         };
 
@@ -59,7 +60,10 @@
                 }
             });
 
-            $menu_collapser.on('click', '.collapse-button', function(e)
+            if(!$options.menuCollapserClickable) {
+              var selector = '.collapse-button';
+            }
+            $menu_collapser.on('click', selector, function(e)
             {
                 e.preventDefault();
                 $menu.slideToggle($options.animSpeed, $options.easingEffect);
