@@ -39,7 +39,12 @@
             $menu.before($collapser);
             $menu_collapser = $menu.prev('.menu-collapser');
 
-            $menu.on('click', '.sub-collapser', function(e)
+            if($options.menuCollapserClickable) {
+              var subSelector = '.sub a';
+            } else {
+              var subSelector = '.sub-collapser';
+            }
+            $menu.on('click', subSelector, function(e)
             {
                 e.preventDefault();
                 e.stopPropagation();
